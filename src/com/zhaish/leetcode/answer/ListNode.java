@@ -1,4 +1,4 @@
-package com.zhaish.leetcode.answer.com.zhaish.leetcode.collection;
+package com.zhaish.leetcode.answer;
 
 public class ListNode {
     public int val;

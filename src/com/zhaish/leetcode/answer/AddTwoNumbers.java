@@ -1,7 +1,5 @@
 package com.zhaish.leetcode.answer;
 
-import com.zhaish.leetcode.answer.com.zhaish.leetcode.collection.ListNode;
-
 /**
  * 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。
  *
@@ -22,6 +20,28 @@ import com.zhaish.leetcode.answer.com.zhaish.leetcode.collection.ListNode;
 public class AddTwoNumbers {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
-        return  null;
+        ListNode first = new ListNode(0);
+        ListNode r = first;
+        int carry = 0;
+        while( (l1!= null) || (l2 != null )){
+            int n1 = l1 == null ? 0 : l1.val;
+            int n2 = l2 == null ? 0 : l2.val;
+            int sum = n1 + n2 + carry;
+            carry = sum / 10;
+            sum = sum % 10;
+            ListNode newNode = new ListNode(0);
+            newNode.val = sum;
+            if(l1 != null)
+                l1 = l1.next;
+            if(l2 != null)
+                l2 = l2.next;
+            r.next =newNode;
+            r = r.next;
+        }
+        if(carry == 1) {
+            r.next = new ListNode(carry);
+        }
+        return  first.next;
     }
+
 }
