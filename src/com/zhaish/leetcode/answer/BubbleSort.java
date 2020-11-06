@@ -17,6 +17,10 @@ public class BubbleSort {
                         if(left > right){
                             swap(arr,i,i+1);
                         }
+                    }else{
+                        if(left < right){
+                            swap(arr,i,i+1);
+                        }
                     }
             }
         }
@@ -30,6 +34,12 @@ public class BubbleSort {
     public static void main(String[] args) {
         int[] nums = {5,2,3,1};
         BubbleSort.sort( nums,true);
+        print(nums);
+        BubbleSort.sort( nums,false);
+        System.out.println("");
+        print(nums);
+    }
+    public static void print(int[] nums){
         for (int num : nums) {
             System.out.print(num+ " ");
         }
