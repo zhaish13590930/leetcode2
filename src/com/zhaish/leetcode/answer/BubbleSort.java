@@ -10,18 +10,24 @@ public class BubbleSort {
         int childIndex = arr.length -1;
 
         for(int k=0;k<childIndex;childIndex--){
+            boolean changedPosition = false;
             for (int i = 0; i < childIndex; i++) {
                     int left = arr[i];
                     int right= arr[i+1];
                     if(isAsc){
                         if(left > right){
+                            changedPosition = true;
                             swap(arr,i,i+1);
                         }
                     }else{
                         if(left < right){
+                            changedPosition = true;
                             swap(arr,i,i+1);
                         }
                     }
+            }
+            if (!changedPosition){
+                break;
             }
         }
     }
@@ -32,7 +38,8 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        int[] nums = {5,2,3,1};
+        int[] nums = {5,2,3,1,6,8,9,4};
+        //int[] nums = {1,2,3,4,5,6,7,8};
         BubbleSort.sort( nums,true);
         print(nums);
         BubbleSort.sort( nums,false);
